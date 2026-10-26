@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Artigo sobre HTML, a linguagem de marcação usada para estruturar páginas da web. Recriação da Wikipédia com layout moderno, semântica e acessibilidade." />
+  <title>HTML – Enciclopédia livre</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+  <header class="topo">
+    <div class="topo__interno">
+      <a class="marca" href="index.html" aria-label="Enciclopédia livre, página inicial">
+        <svg class="marca__icone" viewBox="0 0 48 48" width="40" height="40" aria-hidden="true" focusable="false">
+          <circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="2" />
+          <path d="M8 24h32M24 4c-8 6-8 34 0 40M24 4c8 6 8 34 0 40M10 14h28M10 34h28" fill="none" stroke="currentColor" stroke-width="1.6" />
+        </svg>
+        <span class="marca__texto">
+          <strong>Enciclopédia</strong>
+          <span>livre</span>
+        </span>
+      </a>
+
+      <form class="busca" role="search" action="#" method="get">
+        <label class="visualmente-oculto" for="busca">Pesquisar na enciclopédia</label>
+        <input id="busca" name="q" type="search" placeholder="Pesquisar artigos" autocomplete="off" />
+        <kbd class="busca__atalho" aria-hidden="true">/</kbd>
+        <button type="submit">Pesquisar</button>
+      </form>
+
+      <nav class="menu-principal" aria-label="Principal">
+        <ul>
+          <li><a href="#" aria-current="page">Artigo</a></li>
+          <li><a href="#">Discussão</a></li>
+          <li><a href="#">Histórico</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="pagina">
+
+    <nav class="indice" aria-label="Neste artigo">
+      <h2 class="indice__titulo">Neste artigo</h2>
+      <ol>
+        <li><a href="#introducao">Introdução</a></li>
+        <li><a href="#historia">História</a></li>
+        <li><a href="#estrutura">Estrutura de um documento</a></li>
+        <li><a href="#semantica">Semântica</a>
+          <ol>
+            <li><a href="#tags-estruturais">Tags estruturais</a></li>
+          </ol>
+        </li>
+        <li><a href="#acessibilidade">Acessibilidade</a></li>
+        <li><a href="#versoes">Versões</a></li>
+        <li><a href="#referencias">Referências</a></li>
+      </ol>
+    </nav>
+
+    <main id="conteudo" tabindex="-1">
+      <article class="artigo">
+
+        <header class="artigo__cabecalho">
+          <p class="artigo__trilha">Tecnologia da informação &rsaquo; Desenvolvimento web</p>
+          <h1>HTML</h1>
+          <p class="artigo__sub">Linguagem de marcação para estruturar páginas da web</p>
+        </header>
+
+        <section id="introducao" aria-labelledby="t-introducao">
+          <h2 id="t-introducao">Introdução</h2>
+          <p>
+            <b>HTML</b> (do inglês <i lang="en">HyperText Markup Language</i>, ou
+            <abbr title="Linguagem de Marcação de Hipertexto">Linguagem de Marcação de Hipertexto</abbr>)
+            é a linguagem usada para descrever a <em>estrutura</em> e o <em>significado</em> do conteúdo de
+            uma página da web. Ela não é uma linguagem de programação: não executa cálculos nem toma decisões,
+            apenas indica ao navegador o que cada trecho representa, como um título, um parágrafo, uma imagem ou um link.
+          </p>
+          <p>
+            Na prática, o HTML trabalha ao lado de duas outras tecnologias. O <abbr title="Cascading Style Sheets">CSS</abbr>
+            cuida da aparência e o <strong>JavaScript</strong> cuida do comportamento. Um bom documento HTML funciona
+            mesmo sem as duas.
+          </p>
+        </section>
+
+        <section id="historia" aria-labelledby="t-historia">
+          <h2 id="t-historia">História</h2>
+          <p>
+            A linguagem foi criada pelo físico britânico Tim Berners-Lee, que trabalhava no CERN, na Suíça, para
+            facilitar o compartilhamento de documentos entre pesquisadores. A primeira descrição pública do HTML
+            circulou em <time datetime="1991">1991</time>, junto com os primeiros navegadores e servidores da web.
+          </p>
+          <blockquote cite="https://www.w3.org/">
+            <p>A web deve ser um espaço aberto, onde qualquer pessoa possa publicar e acessar informação.</p>
+            <footer>— Princípio que orienta a criação da web <cite>(paráfrase)</cite></footer>
+          </blockquote>
+          <p>
+            Com o crescimento da internet, a linguagem passou a ser padronizada por organizações como o
+            <abbr title="World Wide Web Consortium">W3C</abbr> e, mais tarde, mantida em conjunto com o WHATWG.
+          </p>
+        </section>
+
+        <section id="estrutura" aria-labelledby="t-estrutura">
+          <h2 id="t-estrutura">Estrutura de um documento</h2>
+          <p>
+            Um documento HTML é formado por <strong>elementos</strong>. Cada elemento tem uma tag de abertura, um conteúdo
+            e uma tag de fechamento, e pode receber <strong>atributos</strong> que complementam seu significado.
+            O navegador transforma o documento em uma árvore de objetos chamada <abbr title="Document Object Model">DOM</abbr>.
+          </p>
+
+          <figure>
+            <svg viewBox="0 0 520 220" role="img" aria-labelledby="fig1-t fig1-d" class="figura-svg">
+              <title id="fig1-t">Árvore do DOM</title>
+              <desc id="fig1-d">O elemento html contém head e body. O head contém title. O body contém header, main e footer.</desc>
+              <g class="arvore-linhas">
+                <path d="M260 40V60M120 60H400M120 60V80M400 60V80M80 120V140M200 120V140M360 120V140M440 120V140M120 100V120M400 100V120M80 120H200M360 120H440" />
+              </g>
+              <g class="arvore-nos" text-anchor="middle">
+                <rect x="220" y="14" width="80" height="26" rx="4" /><text x="260" y="32">html</text>
+                <rect x="80" y="80" width="80" height="26" rx="4" /><text x="120" y="98">head</text>
+                <rect x="360" y="80" width="80" height="26" rx="4" /><text x="400" y="98">body</text>
+                <rect x="40" y="140" width="80" height="26" rx="4" /><text x="80" y="158">title</text>
+                <rect x="160" y="140" width="80" height="26" rx="4" /><text x="200" y="158">header</text>
+                <rect x="320" y="140" width="80" height="26" rx="4" /><text x="360" y="158">main</text>
+                <rect x="400" y="140" width="80" height="26" rx="4" /><text x="440" y="158">footer</text>
+              </g>
+            </svg>
+            <figcaption>Figura 1. Representação simplificada da árvore de um documento HTML.</figcaption>
+          </figure>
+
+          <p>O esqueleto mínimo de uma página é:</p>
+          <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-BR"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;title&gt;Minha página&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Olá, mundo&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </section>
+
+        <section id="semantica" aria-labelledby="t-semantica">
+          <h2 id="t-semantica">Semântica</h2>
+          <p>
+            Semântica é o estudo do significado. Em HTML, escrever com semântica quer dizer escolher a tag que melhor
+            descreve o conteúdo, e não a que apenas produz o visual desejado. Uma tag <code>&lt;div&gt;</code> não diz nada
+            sobre o que carrega, enquanto <code>&lt;nav&gt;</code> deixa claro que ali está uma navegação.
+          </p>
+
+          <h3 id="tags-estruturais">Tags estruturais</h3>
+          <table>
+            <caption>Principais tags estruturais do HTML5</caption>
+            <thead>
+              <tr>
+                <th scope="col">Tag</th>
+                <th scope="col">Função</th>
+                <th scope="col">Quantas por página</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"><code>&lt;header&gt;</code></th>
+                <td>Cabeçalho da página ou de uma seção</td>
+                <td>Várias</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>&lt;nav&gt;</code></th>
+                <td>Bloco de links de navegação</td>
+                <td>Várias</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>&lt;main&gt;</code></th>
+                <td>Conteúdo principal e exclusivo da página</td>
+                <td>Uma</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>&lt;article&gt;</code></th>
+                <td>Conteúdo independente, que faria sentido sozinho</td>
+                <td>Várias</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>&lt;aside&gt;</code></th>
+                <td>Conteúdo complementar, como uma barra lateral</td>
+                <td>Várias</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>&lt;footer&gt;</code></th>
+                <td>Rodapé da página ou de uma seção</td>
+                <td>Várias</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="acessibilidade" aria-labelledby="t-acessibilidade">
+          <h2 id="t-acessibilidade">Acessibilidade</h2>
+          <p>
+            Uma página acessível pode ser usada por todas as pessoas, incluindo quem navega apenas pelo teclado ou
+            com leitor de tela. Boa parte disso vem de graça quando o HTML é semântico. Alguns cuidados básicos:
+          </p>
+          <ul>
+            <li>Descrever imagens com o atributo <code>alt</code>.</li>
+            <li>Associar cada campo de formulário a um <code>&lt;label&gt;</code>.</li>
+            <li>Usar os títulos <code>h1</code> a <code>h6</code> em ordem, sem pular níveis.</li>
+            <li>Garantir contraste suficiente entre texto e fundo.</li>
+            <li>Permitir navegar por tudo com <kbd>Tab</kbd> e ativar com <kbd>Enter</kbd>.</li>
+          </ul>
+
+          <details>
+            <summary>O que é ARIA?</summary>
+            <p>
+              <abbr title="Accessible Rich Internet Applications">ARIA</abbr> é um conjunto de atributos, como
+              <code>aria-label</code> e <code>aria-current</code>, que completam a semântica quando o HTML sozinho
+              não é suficiente. A regra de ouro é usar primeiro a tag nativa correta e só então recorrer ao ARIA.
+            </p>
+          </details>
+        </section>
+
+        <section id="versoes" aria-labelledby="t-versoes">
+          <h2 id="t-versoes">Versões</h2>
+          <ol class="linha-do-tempo">
+            <li><time datetime="1995">1995</time> – HTML 2.0, primeira especificação formal.</li>
+            <li><time datetime="1997">1997</time> – HTML 3.2, com tabelas e suporte a mais recursos visuais.</li>
+            <li><time datetime="1999">1999</time> – HTML 4.01, com ênfase na separação entre estrutura e estilo.</li>
+            <li><time datetime="2014">2014</time> – HTML5 se torna recomendação, trazendo <code>video</code>, <code>audio</code>, <code>canvas</code> e as tags semânticas.</li>
+          </ol>
+        </section>
+
+        <section id="referencias" aria-labelledby="t-referencias">
+          <h2 id="t-referencias">Referências</h2>
+          <ol class="referencias">
+            <li><a href="https://html.spec.whatwg.org/">HTML Living Standard</a>. WHATWG.</li>
+            <li><a href="https://www.w3.org/TR/html52/">HTML 5.2</a>. W3C.</li>
+            <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML">HTML: Linguagem de Marcação de Hipertexto</a>. MDN Web Docs.</li>
+          </ol>
+        </section>
+
+      </article>
+    </main>
+
+    <aside class="infobox" aria-label="Resumo do artigo">
+      <table>
+        <caption>HTML</caption>
+        <tbody>
+          <tr><th scope="row">Nome completo</th><td>HyperText Markup Language</td></tr>
+          <tr><th scope="row">Tipo</th><td>Linguagem de marcação</td></tr>
+          <tr><th scope="row">Criador</th><td>Tim Berners-Lee</td></tr>
+          <tr><th scope="row">Primeira versão</th><td><time datetime="1991">1991</time></td></tr>
+          <tr><th scope="row">Mantenedores</th><td>WHATWG e W3C</td></tr>
+          <tr><th scope="row">Extensão</th><td><code>.html</code></td></tr>
+        </tbody>
+      </table>
+    </aside>
+
+  </div>
+
+  <footer class="rodape">
+    <div class="rodape__interno">
+      <p>
+        Projeto de estudo: recriação da Wikipédia com layout moderno, usando HTML semântico e boas práticas
+        de acessibilidade. O texto é um exemplo e não substitui as fontes oficiais.
+      </p>
+      <nav aria-label="Rodapé">
+        <ul>
+          <li><a href="#">Sobre</a></li>
+          <li><a href="#">Política de privacidade</a></li>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Atalho "/" foca a busca, sem atrapalhar a digitação em campos.
+    document.addEventListener("keydown", function (e) {
+      var alvo = e.target.tagName;
+      if (e.key === "/" && alvo !== "INPUT" && alvo !== "TEXTAREA") {
+        e.preventDefault();
+        document.getElementById("busca").focus();
+      }
+    });
+  </script>
+</body>
+</html>
